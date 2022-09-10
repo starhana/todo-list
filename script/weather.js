@@ -1,5 +1,5 @@
 
-const API_KEY = "";
+const API_KEY = "d90eb0fbb145eb1b5f2d4ec88bbd7f0d";
 
 function onGeoOk(position){
     const lat = position.coords.latitude;
@@ -10,9 +10,11 @@ function onGeoOk(position){
     .then((response) => response.json())
     .then((data) => {
 
-        const weather = document.querySelector(".wheater-wrap p");
+        const city = document.querySelector(".weather-wrap p span:first-child");
+        const weather = document.querySelector(".weather-wrap p span:last-child")
 
-        weather.innerText = `${data.name} 📍${data.weather[0].main}`;
+        city.innerText = `📍${data.name} `;
+        weather.innerText = ` / ${data.weather[0].main}`;
     });
 }
 
